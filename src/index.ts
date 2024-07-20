@@ -1,13 +1,17 @@
-import "@babylonjs/core/Loading/loadingScreen";
 import { Engine } from "@babylonjs/core/Engines/engine";
 // import { WebGPUEngine } from "@babylonjs/core/Engines/webgpuEngine";
-import { Scene, ScenePerformancePriority } from "@babylonjs/core/scene";
-import { HDRCubeTexture } from "@babylonjs/core/Materials/Textures/hdrCubeTexture";
-import SanGiuseppeBridge4K from "../Bistro_v5_2/san_giuseppe_bridge_4k.hdr?url";
+import "@babylonjs/core/Loading/loadingScreen";
 import "@babylonjs/core/Helpers/sceneHelpers";
+import { HDRCubeTexture } from "@babylonjs/core/Materials/Textures/hdrCubeTexture";
+import { Scene, ScenePerformancePriority } from "@babylonjs/core/scene";
+import { SceneLoader } from "@babylonjs/core/Loading/sceneLoader";
+import "@babylonjs/loaders/glTF/2.0";
+import SanGiuseppeBridge4K from "../Bistro_v5_2/san_giuseppe_bridge_4k.hdr?url";
+import BistroExterior from "../Bistro_v5_2/BistroExterior.glb?url";
 
 // biome-ignore lint/suspicious/useAwait: <explanation>
 async function createEngineAsync(canvas: HTMLCanvasElement) {
+  // WebGPUEngine does not support HDRCubeTexture yet.
   // if (await WebGPUEngine.IsSupportedAsync) {
   //   const engine = new WebGPUEngine(canvas, {
   //     adaptToDeviceRatio: true,
@@ -52,6 +56,8 @@ window.addEventListener("load", async () => {
     toneMappingEnabled: true,
   });
   scene.performancePriority = ScenePerformancePriority.Aggressive;
+
+  SceneLoader.Append(BistroExterior, "", scene);
 
   engine.runRenderLoop(() => {
     scene.render();
