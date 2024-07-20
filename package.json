@@ -1,0 +1,21 @@
+{
+  "name": "babylon-lumberyard-bistro",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "ci": "biome ci src"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^7.16.0",
+    "@babylonjs/loaders": "^7.16.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "typescript": "5.5.3",
+    "vite": "5.3.4"
+  }
+}

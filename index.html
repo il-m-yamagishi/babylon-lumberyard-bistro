@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Babylon Lumberyard Bistro Demo</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+    }
+
+    :root {
+      color-scheme: only light;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #render-canvas {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    canvas:focus-visible {
+      outline: none;
+    }
+  </style>
+  <script type="module" src="./src/index.ts"></script>
+</head>
+
+<body>
+  <canvas id="render-canvas"></canvas>
+</body>
+
+</html>
